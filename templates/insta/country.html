@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Страны{% endblock %}
+
+{% block content %}
+<h1>Страны</h1>
+<h2>Список стран</h2>
+{% for country in countries %}
+    <p>{{ country.name }} {{ country.created_at }}</p>
+{% endfor %}
+
+<form  method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Добавить">
+{% endblock %}
